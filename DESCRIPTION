@@ -5,3 +5,5 @@ Imports:
     knitr,
     rmarkdown
 Encoding: UTF-8
+URL: https://github.com/evepavlova/LearningR
+BugReports: https://github.com/evepavlova/LearningR/issues
