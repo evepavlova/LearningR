@@ -85,5 +85,11 @@ To learn **more**!
 2 + 2
 ```
 
+## Inserting images
+
+![Funny cat picture :3](images/cat-image.jpg){#fig-cat}
+
+Silly cat in @fig-cat
+
 
 
