@@ -1,3 +1,4 @@
+#Merge conflict example
 10
 
 # R_basics ----------------------------------------------------------------
@@ -16,4 +17,4 @@ summary(airquality)
 
 library(tidyverse)
 
-#his will be used for testing out Git
+#this will be used for testing out Git
