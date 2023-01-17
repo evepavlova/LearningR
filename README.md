@@ -1,7 +1,8 @@
 Evgeniya Pavlova
 Hello world
 Testing
-Whatever
+Hi
+>>>>>>> 6d947b379d2546ca515fb7195aac223c1c653918
 TODO: Add more to the title of your project here
 
 # LearningR:
