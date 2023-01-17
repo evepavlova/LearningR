@@ -6,7 +6,7 @@ format: html
 
 ```{r setup}
 #| include: false
-#it's a setup chunck, you can only have 1 per document 
+# it's a setup chunck, you can only have 1 per document
 library(tidyverse)
 nhanes_small <- read_csv(here::here("data/nhanes_small.csv"))
 ```
@@ -27,7 +27,35 @@ nhanes_small %>%
     max_bmi = max(bmi, na.rm = TRUE),
     min_bmi = min(bmi, na.rm = TRUE)
   ) %>%
-ungroup() %>% 
+  ungroup() %>%
   knitr::kable(caption = "Test table")
 ```
 
+##Prettier table
+
+```{r prettier-table}
+#| echo: false
+nhanes_small %>%
+  filter(!is.na(diabetes), !is.na(education)) %>%
+  group_by(diabetes, education) %>%
+  summarise(
+    mean_age = mean(age, na.rm = TRUE),
+    mean_bmi = mean(bmi, na.rm = TRUE)
+  ) %>%
+  ungroup() %>%
+  mutate(
+    # Task 2a.
+    mean_age = round(mean_age, 1), # rounds to 1 number
+    mean_bmi = round(mean_bmi, 1),
+    # Task 2b.
+    education = str_to_sentence(education) # capitalizes 1st letter
+  ) %>%
+  rename(
+    # Task 3.
+    "Diabetes Status" = diabetes,
+    "Education" = education,
+    "Mean Age" = mean_age,
+    "Mean BMI" = mean_bmi
+  ) %>%
+  knitr::kable(caption = "Mean values of Age and BMI for each education and diabetes status.")
+```
