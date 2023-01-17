@@ -173,3 +173,16 @@ nhanes_modified <- nhanes_small %>% # Specifying dataset
     # 3. Create young_child variable using a condition
     young_child = if_else(age <= 6, "Yes", "No")
   )
+
+# Summarizing -------------------------------------------------------------
+
+nhanes_small %>%
+  filter(!is.na(diabetes)) %>%
+  group_by(
+    diabetes,
+    phys_active
+  ) %>%
+  summarise(
+    max_bmi = max(bmi, na.rm = TRUE),
+    min_bmi = min(bmi, na.rm = TRUE)
+  )
