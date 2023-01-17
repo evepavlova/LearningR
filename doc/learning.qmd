@@ -3,3 +3,31 @@ title: "Reproducible documents"
 author: "Evgeniya Pavlova"
 format: html
 ---
+
+```{r setup}
+#| include: false
+#it's a setup chunck, you can only have 1 per document 
+library(tidyverse)
+nhanes_small <- read_csv(here::here("data/nhanes_small.csv"))
+```
+
+##Table of results
+
+```{r test-table}
+#| echo: false
+#| warning: false
+#| message: false
+nhanes_small %>%
+  filter(!is.na(diabetes)) %>%
+  group_by(
+    diabetes,
+    education
+  ) %>%
+  summarise(
+    max_bmi = max(bmi, na.rm = TRUE),
+    min_bmi = min(bmi, na.rm = TRUE)
+  ) %>%
+ungroup() %>% 
+  knitr::kable(caption = "Test table")
+```
+
