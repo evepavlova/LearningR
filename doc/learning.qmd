@@ -11,7 +11,7 @@ library(tidyverse)
 nhanes_small <- read_csv(here::here("data/nhanes_small.csv"))
 ```
 
-##Table of results
+## Table of results
 
 ```{r test-table}
 #| echo: false
@@ -31,7 +31,7 @@ nhanes_small %>%
   knitr::kable(caption = "Test table")
 ```
 
-##Prettier table
+## Prettier table
 
 ```{r prettier-table}
 #| echo: false
@@ -59,3 +59,31 @@ nhanes_small %>%
   ) %>%
   knitr::kable(caption = "Mean values of Age and BMI for each education and diabetes status.")
 ```
+
+## Exercizing formatting
+
+- Evgeniya Pavlova
+- PhD student
+- Chemical Biology Division
+- LIFE Department
+- Chalmers University of Technology
+
+# Intro
+
+This is a *test* run.
+
+# Methods and results
+## Analysis
+
+To learn **more**!
+
+# Discussion
+
+*Nice* :)
+
+```{r}
+2 + 2
+```
+
+
+
